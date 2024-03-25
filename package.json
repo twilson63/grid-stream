@@ -1,0 +1,26 @@
+{
+  "name": "grid-stream",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/twilson63/grid-stream.git",
+  "author": "Tom Wilson <tom@hyper.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "esbuild": "^0.20.2",
+    "esbuild-svelte": "^0.8.0",
+    "svelte": "^4.2.12",
+    "w3": "^2.0.2",
+    "watch-cli": "^0.2.3"
+  },
+  "dependencies": {
+    "@permaweb/aoconnect": "^0.0.48"
+  },
+  "scripts": {
+    "start": "concurrently npm:watch npm:serve",
+    "serve": "w3 dist",
+    "watch": "watch -p 'src/**/*' -c 'node build.js'",
+    "deploy": "arkb deploy dist -w ~/.wallet.json --use-bundler https://node2.irys.xyz"
+  }
+}
